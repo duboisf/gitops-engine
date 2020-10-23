@@ -3,7 +3,7 @@ package io
 import (
 	"os"
 
-	"github.com/go-logr/logr"
+	"k8s.io/klog/v2/klogr"
 )
 
 var (
@@ -11,6 +11,7 @@ var (
 	NopCloser = NewCloser(func() error {
 		return nil
 	})
+	Logger = klogr.New()
 )
 
 func init() {
@@ -46,8 +47,8 @@ func NewCloser(close func() error) Closer {
 
 // Close is a convenience function to close a object that has a Close() method, ignoring any errors
 // Used to satisfy errcheck lint
-func Close(c Closer, log logr.Logger) {
+func Close(c Closer) {
 	if err := c.Close(); err != nil {
-		log.Error(err, "Failed to close %v", c)
+		Logger.Error(err, "Failed to close %v", c)
 	}
 }

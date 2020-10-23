@@ -275,7 +275,7 @@ func (k *KubectlCmd) ApplyResource(ctx context.Context, config *rest.Config, obj
 			return "", err
 		}
 		outReconcile, err := k.authReconcile(ctx, config, f.Name(), manifestFile.Name(), namespace, dryRunStrategy)
-		io.Close(closer, k.Log)
+		io.Close(closer)
 		if err != nil {
 			return "", err
 		}
@@ -288,7 +288,7 @@ func (k *KubectlCmd) ApplyResource(ctx context.Context, config *rest.Config, obj
 	if err != nil {
 		return "", err
 	}
-	defer io.Close(closer, k.Log)
+	defer io.Close(closer)
 
 	// Run kubectl apply
 	fact, ioStreams := kubeCmdFactory(f.Name(), namespace)

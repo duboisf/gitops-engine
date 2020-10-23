@@ -22,7 +22,6 @@ import (
 	"github.com/argoproj/gitops-engine/pkg/cache"
 	"github.com/argoproj/gitops-engine/pkg/engine"
 	"github.com/argoproj/gitops-engine/pkg/sync"
-	"github.com/argoproj/gitops-engine/pkg/utils/errors"
 	"github.com/argoproj/gitops-engine/pkg/utils/io"
 	"github.com/argoproj/gitops-engine/pkg/utils/kube"
 )
@@ -30,6 +29,13 @@ import (
 const (
 	annotationGCMark = "gitops-agent.argoproj.io/gc-mark"
 )
+
+func checkError(err error) {
+	if err != nil {
+		klogr.New().Error(err, "")
+		os.Exit(1)
+	}
+}
 
 func main() {
 	if err := newCmd().Execute(); err != nil {
@@ -118,10 +124,10 @@ func newCmd() *cobra.Command {
 			}
 			s := settings{args[0], paths}
 			config, err := clientConfig.ClientConfig()
-			errors.CheckErrorWithCode(err, errors.ErrorCommandSpecific, log)
+			checkError(err)
 			if namespace == "" {
 				namespace, _, err = clientConfig.Namespace()
-				errors.CheckErrorWithCode(err, errors.ErrorCommandSpecific, log)
+				checkError(err)
 			}
 
 			var namespaces []string
@@ -140,13 +146,14 @@ func newCmd() *cobra.Command {
 					return
 				}),
 			)
-			gitOpsEngine := engine.NewEngine(config, clusterCache, engine.WithLogr(log))
-			errors.CheckErrorWithCode(err, errors.ErrorCommandSpecific, log)
+
+			gitOpsEngine := engine.NewEngine(config, clusterCache)
+			checkError(err)
 
 			closer, err := gitOpsEngine.Run()
-			errors.CheckErrorWithCode(err, errors.ErrorCommandSpecific, log)
+			checkError(err)
 
-			defer io.Close(closer, log)
+			defer io.Close(closer)
 
 			resync := make(chan bool)
 			go func() {
@@ -162,7 +169,7 @@ func newCmd() *cobra.Command {
 				resync <- true
 			})
 			go func() {
-				errors.CheckErrorWithCode(http.ListenAndServe(fmt.Sprintf("0.0.0.0:%d", port), nil), errors.ErrorCommandSpecific, log)
+				checkError(http.ListenAndServe(fmt.Sprintf("0.0.0.0:%d", port), nil))
 			}()
 
 			for ; true; <-resync {
