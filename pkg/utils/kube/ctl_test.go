@@ -4,7 +4,7 @@ import (
 	"regexp"
 	"testing"
 
-	testingutils "github.com/argoproj/gitops-engine/pkg/utils/testing"
+	testingutils "github.com/duboisf/gitops-engine/pkg/utils/testing"
 
 	"github.com/stretchr/testify/assert"
 )

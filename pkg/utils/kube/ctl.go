@@ -29,9 +29,9 @@ import (
 	"k8s.io/kubectl/pkg/scheme"
 	"k8s.io/kubernetes/pkg/kubectl/cmd/auth"
 
-	"github.com/argoproj/gitops-engine/pkg/diff"
-	"github.com/argoproj/gitops-engine/pkg/utils/io"
-	"github.com/argoproj/gitops-engine/pkg/utils/tracing"
+	"github.com/duboisf/gitops-engine/pkg/diff"
+	"github.com/duboisf/gitops-engine/pkg/utils/io"
+	"github.com/duboisf/gitops-engine/pkg/utils/tracing"
 )
 
 type Kubectl interface {

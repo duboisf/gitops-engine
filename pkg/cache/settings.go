@@ -8,8 +8,8 @@ import (
 	"k8s.io/apimachinery/pkg/apis/meta/v1/unstructured"
 	"k8s.io/client-go/rest"
 
-	"github.com/argoproj/gitops-engine/pkg/health"
-	"github.com/argoproj/gitops-engine/pkg/utils/kube"
+	"github.com/duboisf/gitops-engine/pkg/health"
+	"github.com/duboisf/gitops-engine/pkg/utils/kube"
 )
 
 type noopSettings struct {

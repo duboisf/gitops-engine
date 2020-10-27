@@ -24,7 +24,7 @@ import (
 	"k8s.io/client-go/tools/pager"
 	watchutil "k8s.io/client-go/tools/watch"
 
-	"github.com/argoproj/gitops-engine/pkg/utils/kube"
+	"github.com/duboisf/gitops-engine/pkg/utils/kube"
 )
 
 const (

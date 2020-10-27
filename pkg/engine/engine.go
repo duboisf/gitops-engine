@@ -4,7 +4,7 @@ and "implements" GitOps.
 
 Example
 
-The https://github.com/argoproj/gitops-engine/tree/master/agent demonstrates how to use the engine.
+The https://github.com/duboisf/gitops-engine/tree/master/agent demonstrates how to use the engine.
 */
 
 package engine
@@ -19,12 +19,12 @@ import (
 	"k8s.io/apimachinery/pkg/apis/meta/v1/unstructured"
 	"k8s.io/client-go/rest"
 
-	"github.com/argoproj/gitops-engine/pkg/cache"
-	"github.com/argoproj/gitops-engine/pkg/diff"
-	"github.com/argoproj/gitops-engine/pkg/sync"
-	"github.com/argoproj/gitops-engine/pkg/sync/common"
-	ioutil "github.com/argoproj/gitops-engine/pkg/utils/io"
-	"github.com/argoproj/gitops-engine/pkg/utils/kube"
+	"github.com/duboisf/gitops-engine/pkg/cache"
+	"github.com/duboisf/gitops-engine/pkg/diff"
+	"github.com/duboisf/gitops-engine/pkg/sync"
+	"github.com/duboisf/gitops-engine/pkg/sync/common"
+	ioutil "github.com/duboisf/gitops-engine/pkg/utils/io"
+	"github.com/duboisf/gitops-engine/pkg/utils/kube"
 )
 
 const (

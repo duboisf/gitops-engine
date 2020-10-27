@@ -19,12 +19,12 @@ import (
 	"k8s.io/apimachinery/pkg/apis/meta/v1/unstructured"
 	"k8s.io/client-go/tools/clientcmd"
 
-	"github.com/argoproj/gitops-engine/pkg/cache"
-	"github.com/argoproj/gitops-engine/pkg/engine"
-	"github.com/argoproj/gitops-engine/pkg/sync"
-	"github.com/argoproj/gitops-engine/pkg/utils/errors"
-	"github.com/argoproj/gitops-engine/pkg/utils/io"
-	"github.com/argoproj/gitops-engine/pkg/utils/kube"
+	"github.com/duboisf/gitops-engine/pkg/cache"
+	"github.com/duboisf/gitops-engine/pkg/engine"
+	"github.com/duboisf/gitops-engine/pkg/sync"
+	"github.com/duboisf/gitops-engine/pkg/utils/errors"
+	"github.com/duboisf/gitops-engine/pkg/utils/io"
+	"github.com/duboisf/gitops-engine/pkg/utils/kube"
 )
 
 const (

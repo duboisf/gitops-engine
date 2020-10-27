@@ -1,7 +1,7 @@
 package health
 
 import (
-	"github.com/argoproj/gitops-engine/pkg/utils/kube"
+	"github.com/duboisf/gitops-engine/pkg/utils/kube"
 	"k8s.io/apimachinery/pkg/apis/meta/v1/unstructured"
 )
 
