@@ -2,8 +2,8 @@
 
 package mocks
 
-import cache "github.com/argoproj/gitops-engine/pkg/cache"
-import kube "github.com/argoproj/gitops-engine/pkg/utils/kube"
+import cache "github.com/duboisf/gitops-engine/pkg/cache"
+import kube "github.com/duboisf/gitops-engine/pkg/utils/kube"
 import mock "github.com/stretchr/testify/mock"
 import schema "k8s.io/apimachinery/pkg/runtime/schema"
 import unstructured "k8s.io/apimachinery/pkg/apis/meta/v1/unstructured"

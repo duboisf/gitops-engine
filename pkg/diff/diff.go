@@ -22,8 +22,8 @@ import (
 	"k8s.io/kubernetes/pkg/apis/core"
 	v1 "k8s.io/kubernetes/pkg/apis/core/v1"
 
-	jsonutil "github.com/argoproj/gitops-engine/pkg/utils/json"
-	kubescheme "github.com/argoproj/gitops-engine/pkg/utils/kube/scheme"
+	jsonutil "github.com/duboisf/gitops-engine/pkg/utils/json"
+	kubescheme "github.com/duboisf/gitops-engine/pkg/utils/kube/scheme"
 )
 
 const couldNotMarshalErrMsg = "Could not unmarshal to object of type %s: %v"

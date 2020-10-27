@@ -3,7 +3,7 @@ package sync
 import (
 	"strings"
 
-	"github.com/argoproj/gitops-engine/pkg/sync/common"
+	"github.com/duboisf/gitops-engine/pkg/sync/common"
 )
 
 // kindOrder represents the correct order of Kubernetes resources within a manifest

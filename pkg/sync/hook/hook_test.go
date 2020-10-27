@@ -6,8 +6,8 @@ import (
 	"github.com/stretchr/testify/assert"
 	"k8s.io/apimachinery/pkg/apis/meta/v1/unstructured"
 
-	"github.com/argoproj/gitops-engine/pkg/sync/common"
-	. "github.com/argoproj/gitops-engine/pkg/utils/testing"
+	"github.com/duboisf/gitops-engine/pkg/sync/common"
+	. "github.com/duboisf/gitops-engine/pkg/utils/testing"
 )
 
 func TestNoHooks(t *testing.T) {
