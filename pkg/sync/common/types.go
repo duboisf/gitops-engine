@@ -101,13 +101,15 @@ const (
 	HookDeletePolicyHookSucceeded      HookDeletePolicy = "HookSucceeded"
 	HookDeletePolicyHookFailed         HookDeletePolicy = "HookFailed"
 	HookDeletePolicyBeforeHookCreation HookDeletePolicy = "BeforeHookCreation"
+	HookDeletePolicyDoNotDelete        HookDeletePolicy = "DoNotDeleteHook"
 )
 
 func NewHookDeletePolicy(p string) (HookDeletePolicy, bool) {
 	return HookDeletePolicy(p),
 		p == string(HookDeletePolicyHookSucceeded) ||
 			p == string(HookDeletePolicyHookFailed) ||
-			p == string(HookDeletePolicyBeforeHookCreation)
+			p == string(HookDeletePolicyBeforeHookCreation) ||
+			p == string(HookDeletePolicyDoNotDelete)
 }
 
 type ResourceSyncResult struct {
